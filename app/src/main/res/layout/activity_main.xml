@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    android:id="@+id/text"
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Maybe you'll see url in toast"
-    android:textSize="18sp"
-    android:layout_gravity="center"
-    />
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Maybe you'll see url in toast"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/tvPrefs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:text="Prefs"
+        />
+
+    <Button
+        android:id="@+id/btnPrefs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show prefs"
+        />
+
+    <TextView
+        android:id="@+id/tvVersionCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        tools:text="12312312312313"
+        />
+
+</LinearLayout>
 

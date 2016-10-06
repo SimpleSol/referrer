@@ -11,6 +11,7 @@ public class InstallReferrerReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         String url = intent.getStringExtra("referrer");
         Toast.makeText(context, url, Toast.LENGTH_LONG).show();
+        Prefs.edit().putString(Prefs.PREFS, url).apply();
         App.rxBus.send(url);
     }
 

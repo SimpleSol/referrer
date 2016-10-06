@@ -10,5 +10,6 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         rxBus = new RxBus();
+        Prefs.init(this);
     }
 }
