@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import java.io.File;
@@ -14,15 +13,19 @@ import java.io.FileOutputStream;
 public class InstallReferrerReceiver extends BroadcastReceiver {
 
     public static final String REFERRER_KEY = "referrer_key";
+    public static final String MY_PREFS = "my_prefs_111";
 
     @Override
     public void onReceive(Context context, Intent intent) {
         String referrer = intent.getStringExtra("referrer");
+
         Toast.makeText(context, referrer, Toast.LENGTH_LONG).show();
-//        Prefs.edit().putString(Prefs.PREFS, referrer).apply();
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        preferences.edit().putString(REFERRER_KEY, referrer).commit();
+
+        SharedPreferences preferences = context.getSharedPreferences(MY_PREFS, Context.MODE_PRIVATE);
+        preferences.edit().putString(REFERRER_KEY, referrer).apply();
+
         App.rxBus.send(referrer);
+
         File file;
         FileOutputStream outputStream;
         try {

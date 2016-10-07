@@ -2,7 +2,6 @@ package biz.growapp.referrer;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -48,10 +47,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnPrefs) {
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences preferences = getSharedPreferences(InstallReferrerReceiver.MY_PREFS, MODE_PRIVATE);
             String referrer = preferences.getString(InstallReferrerReceiver.REFERRER_KEY, "not today");
             tvPrefs.setText(referrer);
-//            tvPrefs.setText(Prefs.get().getString(Prefs.PREFS, "not today"));
         }
     }
 }
